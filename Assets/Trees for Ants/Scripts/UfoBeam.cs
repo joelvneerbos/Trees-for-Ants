@@ -1,0 +1,16 @@
+using UnityEngine;
+
+public class UfoBeam : MonoBehaviour
+{
+    public GameObject beamTrigger;
+    public Transform beamAttractor;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent<BeamPickup>(out var beamPickup))
+        {
+            beamPickup.beamAttractor = beamAttractor;
+            beamPickup.enabled = true;
+        }
+    }
+}
