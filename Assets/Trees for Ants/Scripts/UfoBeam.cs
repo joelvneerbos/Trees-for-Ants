@@ -17,5 +17,10 @@ public class UfoBeam : MonoBehaviour
         {
             beamSpawn.SpawnObject(beamTrigger.transform.position);
         }
+
+        if (other.TryGetComponent<RemovableSeed>(out var removableSeed))
+        {
+            removableSeed.RemoveSeed();
+        }
     }
 }

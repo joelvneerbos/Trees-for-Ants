@@ -4,9 +4,10 @@ public class PlantableSeed : MonoBehaviour
 {
     public GameObject plantedSeedPrefab;
 
-    public void PlantSeed(float yPosition)
+    public void PlantSeed(Vector3 position, System.Action seedRemovedCallback)
     {
-        Instantiate(plantedSeedPrefab, position: new Vector3(transform.position.x, yPosition, transform.position.z), rotation: Quaternion.identity);
+        var plantedSeed = Instantiate(plantedSeedPrefab, position, rotation: Quaternion.identity);
+        plantedSeed.GetComponent<RemovableSeed>().seedRemovedCallback = seedRemovedCallback;
         Destroy(gameObject);
     }
 }

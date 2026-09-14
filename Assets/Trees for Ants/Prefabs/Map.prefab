@@ -200,6 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d027b98a9cf3c4a97c00d4154165b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SeedPlanter
+  claimedAreaPrefab: {fileID: 1718280320022429536, guid: 58d0fbea1a9177741a1a34f3f6181147, type: 3}
 --- !u!64 &7957735806886911198
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: db866cca7c7ab744abf83ae47e13f05f, type: 2}
+    - target: {fileID: 7068398315246040586, guid: 39c3eeb03f0620b4e940642bcb76df6f, type: 3}
+      propertyPath: seedPrefab
+      value: 
+      objectReference: {fileID: 1163444446769298926, guid: 0be2f9103df3c2845a09ff422d22d194, type: 3}
     - target: {fileID: 7776888755964922148, guid: 39c3eeb03f0620b4e940642bcb76df6f, type: 3}
       propertyPath: m_Name
       value: Planted Orange Seed
