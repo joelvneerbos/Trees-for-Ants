@@ -429,6 +429,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d408cd7d8b5b68f458dabd39e5eaece5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  stageLength: 60
+  rainDepletionTime: 40
+  shadowDepletionTime: 55
+  sunDepletionTime: 55
+  nextStagePrefab: {fileID: 0}
+  deadPrefab: {fileID: 0}
   label: {fileID: 6639160347065904191}
   raycasterOrigin: {fileID: 2867486245947166726}
   invalidPosition: 0

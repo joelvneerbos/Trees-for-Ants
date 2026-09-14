@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1594271134901287080, guid: 39c3eeb03f0620b4e940642bcb76df6f, type: 3}
+      propertyPath: sunDepletionTime
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594271134901287080, guid: 39c3eeb03f0620b4e940642bcb76df6f, type: 3}
+      propertyPath: rainDepletionTime
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 3437426886031719476, guid: 39c3eeb03f0620b4e940642bcb76df6f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
