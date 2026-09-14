@@ -12,5 +12,10 @@ public class UfoBeam : MonoBehaviour
             beamPickup.beamAttractor = beamAttractor;
             beamPickup.enabled = true;
         }
+
+        if (other.TryGetComponent<BeamSpawn>(out var beamSpawn))
+        {
+            beamSpawn.SpawnObject(beamTrigger.transform.position);
+        }
     }
 }

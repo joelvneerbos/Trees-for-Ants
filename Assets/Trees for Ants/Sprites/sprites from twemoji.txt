@@ -1,0 +1,2 @@
+Sprites taken from Twemoji:
+https://twemoji-cheatsheet.vercel.app/
