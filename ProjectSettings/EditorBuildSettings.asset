@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Trees for Ants/Scenes/Trees for Ants.unity
+    path: Assets/Scenes/Trees for Ants.unity
     guid: 412e868f07b587243af4b626d339c1e8
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
