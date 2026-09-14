@@ -73,9 +73,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 692073572567916034, guid: 5c3d1b8343efd0f46811038f3080937d, type: 3}
+      propertyPath: m_text
+      value: <sprite name=orange>
+      objectReference: {fileID: 0}
+    - target: {fileID: 692073572567916034, guid: 5c3d1b8343efd0f46811038f3080937d, type: 3}
       propertyPath: m_spriteAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 040fb527b1af6af4eaab1b0878bc5dab, type: 2}
+      objectReference: {fileID: 11400000, guid: 888071e92ab415640a787911c75933a2, type: 2}
     - target: {fileID: 1392422406308416218, guid: 5c3d1b8343efd0f46811038f3080937d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

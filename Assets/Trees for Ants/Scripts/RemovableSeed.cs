@@ -12,6 +12,6 @@ public class RemovableSeed : MonoBehaviour
     {
         Instantiate(seedPrefab, position: transform.position + new Vector3(0f, seedSpawnOffset, 0f), rotation: Quaternion.identity);
         Destroy(gameObject);
-        seedRemovedCallback();
+        seedRemovedCallback?.Invoke();
     }
 }

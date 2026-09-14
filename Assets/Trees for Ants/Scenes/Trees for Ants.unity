@@ -392,6 +392,10 @@ PrefabInstance:
       propertyPath: targetController
       value: 
       objectReference: {fileID: 1421791634}
+    - target: {fileID: 1090041490223481120, guid: 222945c1f819fb247a1d56220fa43b8e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3952082162831211965, guid: 222945c1f819fb247a1d56220fa43b8e, type: 3}
       propertyPath: m_Name
       value: UFO

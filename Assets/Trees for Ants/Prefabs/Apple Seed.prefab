@@ -169,3 +169,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   plantedSeedPrefab: {fileID: 7776888755964922148, guid: 39c3eeb03f0620b4e940642bcb76df6f, type: 3}
+  minRadius: 0.03
+  maxRadius: 0.06
