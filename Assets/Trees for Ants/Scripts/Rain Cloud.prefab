@@ -170,7 +170,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 3
       minMaxState: 0
-      scalar: 1
+      scalar: 1.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -697,7 +697,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
+        key1: {r: 1, g: 1, b: 1, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -712,9 +712,9 @@ ParticleSystem:
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 32768
-        atime1: 32896
-        atime2: 0
+        atime0: 43712
+        atime1: 65535
+        atime2: 65535
         atime3: 0
         atime4: 0
         atime5: 0
@@ -2397,6 +2397,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 687063683621988140}
+  - component: {fileID: 2547295911496338228}
+  - component: {fileID: 5010777441783716371}
+  - component: {fileID: 5246694486312149496}
   m_Layer: 0
   m_Name: Rain Cloud
   m_TagString: Untagged
@@ -2432,6 +2435,68 @@ Transform:
   - {fileID: 6665474339927980999}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &2547295911496338228
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284928874834462711}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0
+--- !u!114 &5010777441783716371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284928874834462711}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed3703cd96161114ea1a173058e87c68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BeamPickup
+  maxSpeed: 0.5
+  beamAttractor: {fileID: 0}
+--- !u!65 &5246694486312149496
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284928874834462711}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.15, y: 0.05, z: 0.15}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2278711649746490558
 GameObject:
   m_ObjectHideFlags: 0
