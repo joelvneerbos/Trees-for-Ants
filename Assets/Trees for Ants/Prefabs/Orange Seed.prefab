@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: db866cca7c7ab744abf83ae47e13f05f, type: 2}
+    - target: {fileID: 8923773068532419261, guid: 1c3a55a7d92d1e047b04f8895421b24e, type: 3}
+      propertyPath: plantedSeedPrefab
+      value: 
+      objectReference: {fileID: 1220020943595261296, guid: b192d1221dda6f744be49de90fe1e31e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
