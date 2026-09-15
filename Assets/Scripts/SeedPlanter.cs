@@ -21,7 +21,7 @@ public class SeedPlanter : MonoBehaviour
                 claimedArea.transform.localScale = new Vector3(radius.Value * 2f, claimedArea.transform.localScale.y, radius.Value * 2f);
                 _claimedAreaTransforms.Add(claimedArea.transform);
 
-                plantableSeed.PlantSeed(position, () => RemoveClaim(claimedArea));
+                plantableSeed.PlantSeed(position, radius.Value, () => RemoveClaim(claimedArea));
             }
             else
             {

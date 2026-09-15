@@ -7,9 +7,10 @@ public class PlantableSeed : MonoBehaviour
     public float minRadius;
     public float maxRadius;
 
-    public void PlantSeed(Vector3 position, System.Action seedRemovedCallback)
+    public void PlantSeed(Vector3 position, float claimedRadius, System.Action seedRemovedCallback)
     {
         var plantedSeed = PlantSeed(position);
+        plantedSeed.GetComponent<GrowStage>().claimedRadius = claimedRadius;
         plantedSeed.GetComponent<RemovableSeed>().seedRemovedCallback = seedRemovedCallback;
     }
 

@@ -24,6 +24,8 @@ public class GrowStage : MonoBehaviour
 
     public bool invalidPosition = false;
 
+    public float claimedRadius;
+
     private SeedlingGrowth _seedlingGrowth;
     private TreeGrowth _treeGrowth;
 
@@ -39,6 +41,7 @@ public class GrowStage : MonoBehaviour
         if (TryGetComponent<TreeGrowth>(out var treeGrowth))
         {
             _treeGrowth = treeGrowth;
+            _treeGrowth.claimedRadius = claimedRadius;
         }
     }
 
@@ -94,7 +97,8 @@ public class GrowStage : MonoBehaviour
 
     private void NextStage()
     {
-        Instantiate(nextStagePrefab, transform.position, Quaternion.identity);
+        var nextStageGameObject = Instantiate(nextStagePrefab, transform.position, Quaternion.identity);
+        nextStageGameObject.GetComponent<GrowStage>().claimedRadius = claimedRadius;
         Destroy(gameObject);
     }
 
@@ -102,7 +106,12 @@ public class GrowStage : MonoBehaviour
     {
         var deadGameObject = Instantiate(deadPrefab, transform.position, Quaternion.identity);
         if (_seedlingGrowth != null) { deadGameObject.GetComponent<SeedlingGrowth>().SetGrowth(stageProgress / stageLength); }
-        if (_treeGrowth != null) { deadGameObject.GetComponent<TreeGrowth>().SetGrowth(stageProgress / stageLength); }
+        if (_treeGrowth != null)
+        {
+            var treeGrowth = deadGameObject.GetComponent<TreeGrowth>();
+            treeGrowth.claimedRadius = claimedRadius;
+            treeGrowth.SetGrowth(stageProgress / stageLength);
+        }
         Destroy(gameObject);
     }
 }

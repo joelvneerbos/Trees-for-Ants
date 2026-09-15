@@ -7,10 +7,12 @@ public class TreeGrowth : MonoBehaviour
     public Transform labelTransform;
     public Transform raycasterTransform;
 
+    public float claimedRadius;
+
     // input should be between 0.0 (initial state) and 1.0 (fully grown)
     public void SetGrowth(float t)
     {
-        float height = Mathf.Lerp(3f, 5f, t);
+        float height = Mathf.Lerp(3f, claimedRadius * 140f, t);
 
         trunkTransform.localScale = Vector3.one * height * 0.4f;
 

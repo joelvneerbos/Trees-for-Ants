@@ -569,6 +569,7 @@ MonoBehaviour:
   label: {fileID: 6639160347065904191}
   raycasterOrigin: {fileID: 2867486245947166726}
   invalidPosition: 0
+  claimedRadius: 0
 --- !u!114 &8397154488178355864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,6 +586,7 @@ MonoBehaviour:
   leavesTransform: {fileID: 5756656552042242026}
   labelTransform: {fileID: 8570696733737511612}
   raycasterTransform: {fileID: 2867486245947166726}
+  claimedRadius: 0
 --- !u!1 &8819076851640798112
 GameObject:
   m_ObjectHideFlags: 0
