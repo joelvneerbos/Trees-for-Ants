@@ -28,6 +28,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 5171cac9b77538c4a955a6175a191501, type: 2}
+    - target: {fileID: 7271913154965881424, guid: 2cdc2381b39d19b4d813a4d01bd3fcaa, type: 3}
+      propertyPath: fruitPrefab
+      value: 
+      objectReference: {fileID: 2528588621565913988, guid: a9bed97384f004b4498133ecf0d1faa6, type: 3}
     - target: {fileID: 7776888755964922148, guid: 2cdc2381b39d19b4d813a4d01bd3fcaa, type: 3}
       propertyPath: m_Name
       value: Orange Tree

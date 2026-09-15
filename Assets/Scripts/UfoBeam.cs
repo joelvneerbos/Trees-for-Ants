@@ -4,6 +4,7 @@ public class UfoBeam : MonoBehaviour
 {
     public GameObject beamTrigger;
     public Transform beamAttractor;
+    public Transform eatAttractor;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -21,6 +22,12 @@ public class UfoBeam : MonoBehaviour
         if (other.TryGetComponent<RemovableSeed>(out var removableSeed))
         {
             removableSeed.RemoveSeed();
+        }
+
+        if (other.TryGetComponent<BeamEat>(out var beamEat))
+        {
+            beamEat.eatAttractor = eatAttractor;
+            beamEat.enabled = true;
         }
     }
 }

@@ -111,6 +111,8 @@ public class GrowStage : MonoBehaviour
             var treeGrowth = deadGameObject.GetComponent<TreeGrowth>();
             treeGrowth.claimedRadius = claimedRadius;
             treeGrowth.SetGrowth(stageProgress / stageLength);
+
+            GetComponent<FruitSpawner>().DetachAllFruits();
         }
         Destroy(gameObject);
     }
