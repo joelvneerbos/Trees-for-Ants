@@ -2,7 +2,8 @@
 A game about planting (small) trees, changing the weather and harvesting fruits.
 
 ## Instructions:
-Move the UFO around with the controllers, pick up seeds with the triggers.
+Move the UFO around with the controllers, pick up seeds with the trigger buttons.
+
 The icons above the seeds indicate the needs of the seed/seedling/tree: a rain cloud means it needs rain, a cloud means it needs shade, and a sun means in needs sunlight. Move the rain cloud to fulfill these needs.
 
 ## Unity VR template / Sample assets
