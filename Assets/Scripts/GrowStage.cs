@@ -3,16 +3,16 @@ using UnityEngine;
 
 public class GrowStage : MonoBehaviour
 {
-    private const float _refillMultiplier = -5f;
+    private const float _refillMultiplier = -10f;
 
     public float stageLength;
     public float rainDepletionTime;
-    public float shadowDepletionTime;
+    public float shadeDepletionTime;
     public float sunDepletionTime;
 
     private float stageProgress = 0f;
     private float rainDepletion = 0f;
-    private float shadowDepletion = 0f;
+    private float shadeDepletion = 0f;
     private float sunDepletion = 0f;
 
     public GameObject nextStagePrefab;
@@ -24,9 +24,22 @@ public class GrowStage : MonoBehaviour
 
     public bool invalidPosition = false;
 
+    private SeedlingGrowth _seedlingGrowth;
+    private TreeGrowth _treeGrowth;
+
     void Start()
     {
         if (invalidPosition) { label.text = "<sprite name=invalid>"; }
+
+        if (TryGetComponent<SeedlingGrowth>(out var seedlingGrowth))
+        {
+            _seedlingGrowth = seedlingGrowth;
+        }
+
+        if (TryGetComponent<TreeGrowth>(out var treeGrowth))
+        {
+            _treeGrowth = treeGrowth;
+        }
     }
 
     void Update()
@@ -34,53 +47,62 @@ public class GrowStage : MonoBehaviour
         if (invalidPosition) { return; }
 
         stageProgress += Time.deltaTime;
-        if (stageProgress >= stageLength) { NextStage(); return; }
+        if (stageProgress >= stageLength && nextStagePrefab != null) { NextStage(); return; }
 
-        var (rain, shadow, sun) = GetCurrentState();
+        if (_seedlingGrowth != null) { _seedlingGrowth.SetGrowth(stageProgress / stageLength); }
+        if (_treeGrowth != null) { _treeGrowth.SetGrowth(stageProgress / stageLength); }
+
+        var (rain, shade, sun) = GetCurrentState();
 
         rainDepletion += Time.deltaTime * (rain ? _refillMultiplier : 1f);
         rainDepletion = Mathf.Max(0f, rainDepletion);
         if (rainDepletion > rainDepletionTime) { Die(); return; }
 
-        shadowDepletion += Time.deltaTime * (shadow ? _refillMultiplier : 1f);
-        shadowDepletion = Mathf.Max(0f, shadowDepletion);
-        if (shadowDepletion > shadowDepletionTime) { Die(); return; }
+        shadeDepletion += Time.deltaTime * (shade ? _refillMultiplier : 1f);
+        shadeDepletion = Mathf.Max(0f, shadeDepletion);
+        if (shadeDepletion > shadeDepletionTime) { Die(); return; }
 
         sunDepletion += Time.deltaTime * (sun ? _refillMultiplier : 1f);
         sunDepletion = Mathf.Max(0f, sunDepletion);
         if (sunDepletion > sunDepletionTime) { Die(); return; }
 
+        // show one icon less if being refilled to give immediate feedback to the player
+        // (e.g. when a tree has 2 shade icons, it will change to 1 icon as soon as it gets shade)
         int rainIconCount = Mathf.FloorToInt(rainDepletion * 4f / rainDepletionTime) - (rain ? 1 : 0);
-        int shadowIconCount = Mathf.FloorToInt(shadowDepletion * 4f / shadowDepletionTime) - (shadow ? 1 : 0);
+        int shadeIconCount = Mathf.FloorToInt(shadeDepletion * 4f / shadeDepletionTime) - (shade ? 1 : 0);
         int sunIconCount = Mathf.FloorToInt(sunDepletion * 4f / sunDepletionTime) - (sun ? 1 : 0);
 
         string text = "";
         for (int i = 0; i < rainIconCount; ++i) { text += "<sprite name=rain>"; }
-        for (int i = 0; i < shadowIconCount; ++i) { text += "<sprite name=clouds>"; }
+        for (int i = 0; i < shadeIconCount; ++i) { text += "<sprite name=clouds>"; }
         for (int i = 0; i < sunIconCount; ++i) { text += "<sprite name=sun>"; }
 
         label.text = text;
     }
 
-    private (bool rain, bool shadow, bool sun) GetCurrentState()
+    private (bool rain, bool shade, bool sun) GetCurrentState()
     {
         bool rain = false;
         if (Physics.Raycast(raycasterOrigin.position, Vector3.up, out var hitInfo))
         {
-            rain = hitInfo.collider.gameObject.name == "Rain Cloud";
+            rain = hitInfo.collider.gameObject.name.StartsWith("Rain Cloud");
         }
 
-        bool shadow = Physics.Raycast(raycasterOrigin.position, SunDirection.sunDirection);
-        return (rain, shadow, !shadow);
+        bool shade = Physics.Raycast(raycasterOrigin.position, SunDirection.sunDirection);
+        return (rain, shade, !shade);
     }
 
     private void NextStage()
     {
+        Instantiate(nextStagePrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
     private void Die()
     {
+        var deadGameObject = Instantiate(deadPrefab, transform.position, Quaternion.identity);
+        if (_seedlingGrowth != null) { deadGameObject.GetComponent<SeedlingGrowth>().SetGrowth(stageProgress / stageLength); }
+        if (_treeGrowth != null) { deadGameObject.GetComponent<TreeGrowth>().SetGrowth(stageProgress / stageLength); }
         Destroy(gameObject);
     }
 }

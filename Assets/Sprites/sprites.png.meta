@@ -246,6 +246,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: dead
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 144
+        width: 72
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7a2fa354982ce045a85e35856566c5f
+      internalID: -1351877401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -264,6 +286,7 @@ TextureImporter:
     nameFileIdTable:
       apple: 6128299156075563123
       clouds: 2091244541
+      dead: -1351877401
       invalid: 641765615
       orange: 1802516917
       rain: -1430555305
