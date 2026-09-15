@@ -1,10 +1,13 @@
 using UnityEngine;
+using static Score;
 
 public class BeamEat : MonoBehaviour
 {
     public float maxSpeed;
 
     public Transform eatAttractor;
+
+    public ScoreType scoreType;
 
     private Rigidbody _rigidBody;
 

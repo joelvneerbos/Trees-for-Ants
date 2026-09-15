@@ -530,7 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d408cd7d8b5b68f458dabd39e5eaece5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  stageLength: 2
+  stageLength: 60
   rainDepletionTime: 40
   shadeDepletionTime: 55
   sunDepletionTime: 55

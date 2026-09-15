@@ -6,6 +6,7 @@ public class EatFruit : MonoBehaviour
     {
         if (other.TryGetComponent<BeamEat>(out var beamEat))
         {
+            Score.IncrementScore(beamEat.scoreType);
             Destroy(beamEat.gameObject);
         }
     }

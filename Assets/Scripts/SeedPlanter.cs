@@ -5,7 +5,17 @@ public class SeedPlanter : MonoBehaviour
 {
     public GameObject claimedAreaPrefab;
 
+    public GameObject[] preClaimedAreas;
+
     private HashSet<Transform> _claimedAreaTransforms = new();
+
+    private void Start()
+    {
+        foreach (var claimedArea in preClaimedAreas)
+        {
+            _claimedAreaTransforms.Add(claimedArea.transform);
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -37,6 +47,9 @@ public class SeedPlanter : MonoBehaviour
 
         // decrease max radius if near the border of the map
         maxRadius = Mathf.Min(maxRadius, entireMapRadius - (position - transform.position).magnitude);
+
+        // decrease max radius if near the road (position of the road is hardcoded for now)
+        maxRadius = Mathf.Min(maxRadius, Mathf.Abs(position.x) - 0.05f);
 
         // decrease max radius if near another claimed area
         foreach (var otherTransform in _claimedAreaTransforms)
